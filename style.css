@@ -1,0 +1,67 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-image: url(img/emerald.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.mensaje {
+    font-size: 2em;
+}
+
+
+.carta {
+    padding-top: 8px;
+    padding-bottom: 8px;
+    height: 166px;
+    overflow: hidden;
+    transition: padding-top 300ms cubic-bezier(0.42,0,0.58,1), padding-bottom 300ms cubic-bezier(0.42,0,0.58,1);
+}
+
+.carta:hover{
+    padding-top: 2px;
+    padding-bottom: 2px;
+}
+
+
+.visible .carta-reves {
+    display: none;
+}
+
+.carta .carta-frente {
+    display: none;
+}
+
+.visible .carta-frente {
+    display: inherit;
+}
+
+.pokebola {
+    height: 150px;
+    width: 150px;
+    transition: width 200ms ease-in-out, height 200ms ease-in-out;
+}
+
+.pokebola:hover {
+    height: 160px;
+    width: 160px;
+}
+
+.poke {
+    height: 128px;
+    width: 128px;
+    transition: width 200ms ease-in-out, height 200ms ease-in-out;
+}
+
+.poke:hover {
+    height: 130px;
+    width: 130px;
+}
+
+.btn {
+    font-size: 2em;
+    padding: 10px 50px;
+}
