@@ -8,6 +8,10 @@ body {
     background-repeat: no-repeat;
 }
 
+.logo {
+    width: 400px;
+}
+
 .mensaje {
     font-size: 2em;
 }
@@ -31,11 +35,19 @@ body {
     display: none;
 }
 
+.pareja .carta-reves {
+    display: none;
+}
+
 .carta .carta-frente {
     display: none;
 }
 
 .visible .carta-frente {
+    display: inherit;
+}
+
+.pareja .carta-frente {
     display: inherit;
 }
 

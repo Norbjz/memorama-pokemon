@@ -12,54 +12,29 @@ const carta11 = document.getElementById("carta11");
 const carta12 = document.getElementById("carta12");
 const reloj = document.getElementById("startBtn")
 
-function voltear1() {
-    carta1.classList.toggle("visible");
-}
+var activas = 0;
 
-function voltear2() {
-    carta2.classList.toggle("visible");
+function voltear() {
+    if (activas < 2 && !this.classList.contains("visible") && !this.classList.contains("pareja")) {
+        this.classList.add("visible");
+        activas++;
+        if (activas === 2) {
+            var par = document.getElementsByClassName('visible');
+            console.log(par);
+            //idea: con querrySelector buscar las visibles y darles una clase diferente luego comparar si dentro de esas clases hay una clase similar
+            //idea: cambiar cartas a clase con el nombre del pokemon
+            setTimeout(function(){  
+                for (let i = 0; i < activas; i++) {
+                    var seleccion = document.querySelector(".visible");
+                    seleccion.classList.remove("visible");
+                }
+                activas = 0;
+            }, 1000);
+            
+            
+        }
+    }
 }
-
-function voltear3() {
-    carta3.classList.toggle("visible");
-}
-
-function voltear4() {
-    carta4.classList.toggle("visible");
-}
-
-function voltear5() {
-    carta5.classList.toggle("visible");
-}
-
-function voltear6() {
-    carta6.classList.toggle("visible");
-}
-
-function voltear7() {
-    carta7.classList.toggle("visible");
-}
-
-function voltear8() {
-    carta8.classList.toggle("visible");
-}
-
-function voltear9() {
-    carta9.classList.toggle("visible");
-}
-
-function voltear10() {
-    carta10.classList.toggle("visible");
-}
-
-function voltear11() {
-    carta11.classList.toggle("visible");
-}
-
-function voltear12() {
-    carta12.classList.toggle("visible");
-}
-
 
 function tiempoAtras() {
     var counter = 90;
@@ -76,21 +51,28 @@ function tiempoAtras() {
     }, 1000);
 }
 
-carta1.addEventListener("click", voltear1);
-carta2.addEventListener("click", voltear2);
-carta3.addEventListener("click", voltear3);
-carta4.addEventListener("click", voltear4);
-carta5.addEventListener("click", voltear5);
-carta6.addEventListener("click", voltear6);
-carta7.addEventListener("click", voltear7);
-carta8.addEventListener("click", voltear8);
-carta9.addEventListener("click", voltear9);
-carta10.addEventListener("click", voltear10);
-carta11.addEventListener("click", voltear11);
-carta12.addEventListener("click", voltear12);
+carta1.addEventListener("click", voltear);
+carta2.addEventListener("click", voltear);
+carta3.addEventListener("click", voltear);
+carta4.addEventListener("click", voltear);
+carta5.addEventListener("click", voltear);
+carta6.addEventListener("click", voltear);
+carta7.addEventListener("click", voltear);
+carta8.addEventListener("click", voltear);
+carta9.addEventListener("click", voltear);
+carta10.addEventListener("click", voltear);
+carta11.addEventListener("click", voltear);
+carta12.addEventListener("click", voltear);
 reloj.addEventListener("click", tiempoAtras);
 
 var parent = document.querySelector(".tablero .row");
 for(var i = 0; i < parent.children.length; i++){
   parent.appendChild(parent.children[Math.random() * i | 0]);
 }
+
+// var mazo = Array.from(parent.children);
+
+// for (let i = 0; i < mazo.length; i++) {
+//     mazo[i] = 'carta' + i;
+//     console.log(mazo[i]);
+// }
