@@ -24,15 +24,10 @@ function voltear() {
         }
         activas++;
         if (activas === 2) {
-            var cartapar1 = document.querySelector(".par1 .carta-frente");
-            var cartapara =Array.from(cartapar1.children)
-            console.log(cartapara);
+            var cartapar = document.querySelectorAll(".pareja");
+            console.log(cartapar[0].children==cartapar[1].children); //siempre da false aunque sea la misma carta al rato checar
 
-            var cartapar2 = document.querySelector(".par2 .carta-frente");
-            var cartaparb =Array.from(cartapar2.children)
-            console.log(cartaparb);
-
-            if (cartapara == cartaparb) {
+            if (cartapar[0].children==cartapar[1].children) {
                 document.getElementById("aviso").innerHTML = "¡Felicidades!"
                 activas = 0;
             } else {
