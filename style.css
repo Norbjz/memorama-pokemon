@@ -31,7 +31,11 @@ body {
 }
 
 
-.visible .carta-reves {
+.par1 .carta-reves {
+    display: none;
+}
+
+.par2 .carta-reves {
     display: none;
 }
 
@@ -43,7 +47,11 @@ body {
     display: none;
 }
 
-.visible .carta-frente {
+.par1 .carta-frente {
+    display: inherit;
+}
+
+.par2 .carta-frente {
     display: inherit;
 }
 
