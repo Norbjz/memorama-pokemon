@@ -1,20 +1,13 @@
-const carta1 = document.getElementById("carta1");
-const carta2 = document.getElementById("carta2");
-const carta3 = document.getElementById("carta3");
-const carta4 = document.getElementById("carta4");
-const carta5 = document.getElementById("carta5");
-const carta6 = document.getElementById("carta6");
-const carta7 = document.getElementById("carta7");
-const carta8 = document.getElementById("carta8");
-const carta9 = document.getElementById("carta9");
-const carta10 = document.getElementById("carta10");
-const carta11 = document.getElementById("carta11");
-const carta12 = document.getElementById("carta12");
 const reloj = document.getElementById("startBtn")
 
-const parent = document.querySelector(".tablero .row");
-for(var i = 0; i < parent.children.length; i++){
-  parent.appendChild(parent.children[Math.random() * i | 0]);
+const random = document.querySelector(".tablero .row");
+for(var i = 0; i < random.children.length; i++){
+  random.appendChild(random.children[Math.random() * i | 0]);
+}
+
+cartas = document.querySelectorAll(".carta");
+for (let i = 0; i < cartas.length; i++) {
+    cartas[i].addEventListener("click", voltear);
 }
 
 var activas = 0;
@@ -75,16 +68,4 @@ function tiempoAtras() {
     }, 1000);
 }
 
-carta1.addEventListener("click", voltear);
-carta2.addEventListener("click", voltear);
-carta3.addEventListener("click", voltear);
-carta4.addEventListener("click", voltear);
-carta5.addEventListener("click", voltear);
-carta6.addEventListener("click", voltear);
-carta7.addEventListener("click", voltear);
-carta8.addEventListener("click", voltear);
-carta9.addEventListener("click", voltear);
-carta10.addEventListener("click", voltear);
-carta11.addEventListener("click", voltear);
-carta12.addEventListener("click", voltear);
 reloj.addEventListener("click", tiempoAtras);
