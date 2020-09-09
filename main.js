@@ -13,24 +13,20 @@ for (let i = 0; i < cartas.length; i++) {
 var activas = 0;
 
 function voltear() {
-    if (activas < 2 && !this.classList.contains("par1") && !this.classList.contains("par2") && !this.classList.contains("pareja")) {
-        var check = document.querySelector(".par1");
-        if (check === null) {
-            this.classList.add("par1");
-            this.classList.add("pareja");
-        } else {
-            this.classList.add("par2");
-            this.classList.add("pareja");
-        }
+    if (activas < 2 && !this.classList.contains("par") && !this.classList.contains("pareja")) {
+        this.classList.add("pareja");
         activas++;
         if (activas === 2) {
             var cartapar = document.querySelectorAll(".pareja");
-            console.log(cartapar[0].children==cartapar[1].children); //siempre da false aunque sea la misma carta al rato checar
-
-            if (cartapar[0].children==cartapar[1].children) {
-                document.getElementById("aviso").innerHTML = "¡Felicidades!"
+            if (cartapar[0].dataset.pokemon==cartapar[1].dataset.pokemon) {
+                for (let i = 0; i < cartapar.length; i++) {
+                cartapar[i].classList.add("par")
+                cartapar[i].classList.remove("pareja")
+                }
+                document.getElementById("aviso").innerHTML = "¡Felicidades capturaste un par!"
                 activas = 0;
             } else {
+                document.getElementById("aviso").innerHTML = "¡Los pokemon han huido!"
                 setTimeout(function(){  
                     for (let i = 0; i < activas; i++) {
                         var seleccion = document.querySelector(".pareja");
@@ -39,11 +35,6 @@ function voltear() {
                     activas = 0;
                 }, 1000);
             }
-            var removerpar = document.querySelector(".par1");
-            removerpar.classList.remove("par1");
-
-            var removerpar = document.querySelector(".par2");
-            removerpar.classList.remove("par2");
         }
     }
 }
