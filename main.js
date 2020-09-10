@@ -13,6 +13,7 @@ function barajar() {
 }
 
 function jugando() {
+    alert('¡Atrapalos a todos!');
     cartas = document.querySelectorAll(".carta");
         for (let i = 0; i < cartas.length; i++) {
         cartas[i].addEventListener("click", voltear);
@@ -61,9 +62,9 @@ function regresarCartas() {
     }, 1000);
 }
 
-function tiempoAtras() {
+function iniciar() {
     reset.addEventListener("click", reseteo)
-    reloj.removeEventListener("click", tiempoAtras);
+    reloj.removeEventListener("click", iniciar);
     setInterval(function () {
         tempo()
     }, 1000);
@@ -73,7 +74,7 @@ function tiempoAtras() {
 
 function reseteo() {
     clearInterval(segundos);
-    segundos = 60;
+    segundos = 61;
     cartas = document.querySelectorAll(".carta");
     for (let i = 0; i < cartas.length; i++) {
         cartas[i].classList.remove("par");
@@ -101,8 +102,8 @@ function victoria () {
         clearInterval(segundos);
         segundos = -1;
         document.getElementById("aviso").innerHTML = "¡Felicidades!"
-        alert('¡Los capturaste todos!');
+        alert('¡Ahora eres un maestro pokémon! :D');
     }
 }
 
-reloj.addEventListener("click", tiempoAtras);
+reloj.addEventListener("click", iniciar);
