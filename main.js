@@ -63,8 +63,8 @@ function regresarCartas() {
 }
 
 function iniciar() {
-    reset.addEventListener("click", reseteo)
-    reloj.removeEventListener("click", iniciar);
+    document.getElementById("startBtn").disabled = 'true';
+    reset.addEventListener("click", reseteo);
     setInterval(function () {
         tempo()
     }, 1000);
