@@ -1,14 +1,22 @@
 const reloj = document.getElementById("startBtn")
 const reset = document.getElementById("resetBtn")
 
+//Elimina drag de imagenes de pokebolas
 const tomar = document.querySelectorAll(".pokebola")
 for (var i = 0; i < tomar.length; i++) {
     tomar[i].setAttribute("draggable", "false");
 }
 
+//Elimina drag de imagenes de pokemon
+const tomarpoke = document.querySelectorAll(".poke")
+for (var i = 0; i < tomarpoke.length; i++) {
+    tomarpoke[i].setAttribute("draggable", "false");
+}
+
 var activas = 0;
 var segundos = 60;
 
+//Acomoda de manera aleatoria las "cartas"
 function barajar() {
     let random = document.querySelector(".tablero .row");
     for (var i = 0; i < random.children.length; i++) {
@@ -16,6 +24,7 @@ function barajar() {
     }
 }
 
+//Permite voltear las cartas solo cuando el juego este en curso
 function jugando() {
     alert('¡Atrapalos a todos!');
     let cartas = document.querySelectorAll(".carta");
@@ -24,6 +33,7 @@ function jugando() {
     }
 }
 
+//Voltea la carta e impide que se volteen cartas que ya estan boca arriba
 function voltear() {
     if (activas < 2 && !this.classList.contains("par") && !this.classList.contains("pareja")) {
         this.classList.add("pareja");
@@ -32,6 +42,7 @@ function voltear() {
     }
 }
 
+//Revisa si las cartas activas son iguales o no
 function checarPar() {
     if (activas === 2) {
         let cartapar = document.querySelectorAll(".pareja");
@@ -43,6 +54,7 @@ function checarPar() {
     }
 }
 
+//Al encontrar un par permite que las cartas se queden boca arriba y llama a la funcion victoria
 function parEncontrado(a) {
     for (let i = 0; i < a.length; i++) {
         a[i].classList.add("par")
@@ -55,6 +67,7 @@ function parEncontrado(a) {
     }, 100);
 }
 
+//Permite regresar las cartas boca abajo si es que no son pares
 function regresarCartas() {
     document.getElementById("aviso").innerHTML = "¡Los pokemon han huido!"
     setTimeout(function () {
@@ -66,6 +79,7 @@ function regresarCartas() {
     }, 1000);
 }
 
+//Inicia el contador y llama a las funciones barajar y jugando
 function iniciar() {
     document.getElementById("startBtn").disabled = 'true';
     reset.addEventListener("click", reseteo);
@@ -76,6 +90,7 @@ function iniciar() {
     jugando();
 }
 
+//Reinicia el contador, devuelve todas las cartas boca abajo y llama a las funciones barajar y jugando
 function reseteo() {
     clearInterval(segundos);
     segundos = 61;
@@ -88,6 +103,7 @@ function reseteo() {
     jugando();
 }
 
+//Permite que el tiempo sea visible en pantalla y al llegar a cero llama a la funcion gameOver
 function tempo() {
     segundos--;
     if (segundos === 0) {
@@ -101,6 +117,7 @@ function tempo() {
     }
 }
 
+//Impide que se puedan voltear cartas si el tiempo llega a cero
 function gameOver() {
     let cartas = document.querySelectorAll(".carta");
     for (let i = 0; i < cartas.length; i++) {
@@ -108,6 +125,7 @@ function gameOver() {
     }
 }
 
+//Verifica que si es que se han encontrado todos los pares y detiene el contador en el segundo que se encontraron
 function victoria() {
     let capturados = document.querySelectorAll(".par");
     if (capturados.length === 12) {
