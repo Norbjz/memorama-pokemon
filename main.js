@@ -16,27 +16,39 @@ function voltear() {
     if (activas < 2 && !this.classList.contains("par") && !this.classList.contains("pareja")) {
         this.classList.add("pareja");
         activas++;
-        if (activas === 2) {
-            var cartapar = document.querySelectorAll(".pareja");
-            if (cartapar[0].dataset.pokemon==cartapar[1].dataset.pokemon) {
-                for (let i = 0; i < cartapar.length; i++) {
-                cartapar[i].classList.add("par")
-                cartapar[i].classList.remove("pareja")
-                }
-                document.getElementById("aviso").innerHTML = "¡Felicidades capturaste un par!"
-                activas = 0;
-            } else {
-                document.getElementById("aviso").innerHTML = "¡Los pokemon han huido!"
-                setTimeout(function(){  
-                    for (let i = 0; i < activas; i++) {
-                        var seleccion = document.querySelector(".pareja");
-                        seleccion.classList.remove("pareja");
-                    }
-                    activas = 0;
-                }, 1000);
-            }
+        checarPar();
+    }
+}
+
+function checarPar() {
+    if (activas === 2) {
+        var cartapar = document.querySelectorAll(".pareja");
+        if (cartapar[0].dataset.pokemon==cartapar[1].dataset.pokemon) {
+            parEncontrado(cartapar);
+        } else {
+            regresarCartas();
         }
     }
+}
+
+function parEncontrado(a) {
+    for (let i = 0; i < a.length; i++) {
+        a[i].classList.add("par")
+        a[i].classList.remove("pareja")
+        }
+        document.getElementById("aviso").innerHTML = "¡Felicidades capturaste un par!"
+        activas = 0;
+}
+
+function regresarCartas() {
+    document.getElementById("aviso").innerHTML = "¡Los pokemon han huido!"
+    setTimeout(function(){  
+        for (let i = 0; i < activas; i++) {
+            var seleccion = document.querySelector(".pareja");
+            seleccion.classList.remove("pareja");
+        }
+        activas = 0;
+    }, 1000);
 }
 
 function tiempoAtras() {
