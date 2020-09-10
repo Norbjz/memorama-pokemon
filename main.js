@@ -1,6 +1,10 @@
-
 const reloj = document.getElementById("startBtn")
 const reset = document.getElementById("resetBtn")
+
+const tomar = document.querySelectorAll(".pokebola")
+for (var i = 0; i < tomar.length; i++) {
+    tomar[i].setAttribute("draggable", "false");
+}
 
 var activas = 0;
 var segundos = 60;
@@ -14,10 +18,10 @@ function barajar() {
 
 function jugando() {
     alert('¡Atrapalos a todos!');
-    cartas = document.querySelectorAll(".carta");
-        for (let i = 0; i < cartas.length; i++) {
+    let cartas = document.querySelectorAll(".carta");
+    for (let i = 0; i < cartas.length; i++) {
         cartas[i].addEventListener("click", voltear);
-}
+    }
 }
 
 function voltear() {
@@ -55,7 +59,7 @@ function regresarCartas() {
     document.getElementById("aviso").innerHTML = "¡Los pokemon han huido!"
     setTimeout(function () {
         for (let i = 0; i < activas; i++) {
-            var seleccion = document.querySelector(".pareja");
+            let seleccion = document.querySelector(".pareja");
             seleccion.classList.remove("pareja");
         }
         activas = 0;
@@ -75,7 +79,7 @@ function iniciar() {
 function reseteo() {
     clearInterval(segundos);
     segundos = 61;
-    cartas = document.querySelectorAll(".carta");
+    let cartas = document.querySelectorAll(".carta");
     for (let i = 0; i < cartas.length; i++) {
         cartas[i].classList.remove("par");
         cartas[i].classList.remove("pareja");
@@ -84,23 +88,27 @@ function reseteo() {
     jugando();
 }
 
-function tempo () {
+function tempo() {
     segundos--;
     if (segundos === 0) {
         clearTimeout(segundos);
         alert('Se terminó tu tiempo :(');
-        cartas = document.querySelectorAll(".carta");
-        for (let i = 0; i < cartas.length; i++) {
-        cartas[i].removeEventListener("click", voltear);
-}
-    } 
+        gameOver();
+    }
     if (segundos >= 0) {
         span = document.getElementById("tiempo");
         span.innerHTML = segundos;
     }
 }
 
-function victoria () {
+function gameOver() {
+    let cartas = document.querySelectorAll(".carta");
+    for (let i = 0; i < cartas.length; i++) {
+        cartas[i].removeEventListener("click", voltear);
+    }
+}
+
+function victoria() {
     let capturados = document.querySelectorAll(".par");
     if (capturados.length === 12) {
         clearInterval(segundos);
