@@ -16,7 +16,7 @@ for (var i = 0; i < tomarpoke.length; i++) {
 var activas = 0;
 var segundos = 60;
 
-//Acomoda de manera aleatoria las "cartas"
+//Acomoda de manera aleatoria las cartas
 function barajar() {
     let random = document.querySelector(".tablero .row");
     for (var i = 0; i < random.children.length; i++) {
@@ -125,7 +125,7 @@ function gameOver() {
     }
 }
 
-//Verifica que si es que se han encontrado todos los pares y detiene el contador en el segundo que se encontraron
+//Verifica si es que se han encontrado todos los pares y detiene el contador en el segundo que se encontraron
 function victoria() {
     let capturados = document.querySelectorAll(".par");
     if (capturados.length === 12) {
