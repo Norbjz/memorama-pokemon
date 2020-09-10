@@ -45,7 +45,9 @@ function parEncontrado(a) {
     }
     document.getElementById("aviso").innerHTML = "¡Capturaste un par!"
     activas = 0;
-    victoria();
+    setTimeout(function () {
+        victoria();
+    }, 100);
 }
 
 function regresarCartas() {
@@ -71,7 +73,7 @@ function tiempoAtras() {
 
 function reseteo() {
     clearInterval(segundos);
-    segundos = 61;
+    segundos = 60;
     cartas = document.querySelectorAll(".carta");
     for (let i = 0; i < cartas.length; i++) {
         cartas[i].classList.remove("par");
