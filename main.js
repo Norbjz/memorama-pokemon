@@ -89,6 +89,10 @@ function tempo () {
     if (segundos === 0) {
         clearTimeout(segundos);
         alert('Se terminó tu tiempo :(');
+        cartas = document.querySelectorAll(".carta");
+        for (let i = 0; i < cartas.length; i++) {
+        cartas[i].removeEventListener("click", voltear);
+}
     } 
     if (segundos >= 0) {
         span = document.getElementById("tiempo");
