@@ -37,6 +37,7 @@ function jugando() {
 function voltear() {
     if (activas < 2 && !this.classList.contains("par") && !this.classList.contains("pareja")) {
         this.classList.add("pareja");
+        this.style.transform = "rotateY(180deg)";
         activas++;
         checarPar();
     }
@@ -74,6 +75,7 @@ function regresarCartas() {
         for (let i = 0; i < activas; i++) {
             let seleccion = document.querySelector(".pareja");
             seleccion.classList.remove("pareja");
+            seleccion.style.transform = "";
         }
         activas = 0;
     }, 1000);
@@ -98,6 +100,7 @@ function reseteo() {
     for (let i = 0; i < cartas.length; i++) {
         cartas[i].classList.remove("par");
         cartas[i].classList.remove("pareja");
+        cartas[i].style.transform = "";
     }
     barajar();
     jugando();

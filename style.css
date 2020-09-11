@@ -1,5 +1,6 @@
 * {
     box-sizing: border-box;
+    font-family: 'Press Start 2P', cursive;
 }
 
 body {
@@ -13,23 +14,25 @@ body {
 }
 
 .mensaje {
-    font-size: 2em;
+    font-size: 1.4em;
 }
 
+.tablero {
+    perspective: 1000px;
+}
 
 .carta {
     padding-top: 8px;
     padding-bottom: 8px;
     height: 166px;
     overflow: hidden;
-    transition: padding-top 300ms cubic-bezier(0.42,0,0.58,1), padding-bottom 300ms cubic-bezier(0.42,0,0.58,1);
+    transition: padding-top 300ms cubic-bezier(0.42,0,0.58,1), padding-bottom 300ms cubic-bezier(0.42,0,0.58,1), transform 0.8s;
 }
 
 .carta:hover{
     padding-top: 2px;
     padding-bottom: 2px;
 }
-
 
 .par .carta-reves {
     display: none;
@@ -74,6 +77,6 @@ body {
 }
 
 .btn {
-    font-size: 2em;
+    font-size: 1.5em;
     padding: 10px 50px;
 }
