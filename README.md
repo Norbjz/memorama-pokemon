@@ -1,3 +1,8 @@
-# memorama-pokemon
+# Memorama Pokemon
+Proyecto final de la *Cinta Blanca* en **Dev.f** con el sensei @pedroagont — ¡Gracias sensei!
 
-[Link al memorama](https://norbjz.github.io/memorama-pokemon/)
+![Imagen memorama](https://i.ibb.co/3pSqYV0/memoramapoke1.png)
+
+Para ver el proyecto en acción da click a [este link](https://norbjz.github.io/memorama-pokemon/).
+
+
