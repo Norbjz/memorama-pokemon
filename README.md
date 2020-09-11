@@ -1,5 +1,5 @@
 # Memorama Pokemon
-Proyecto final de la *Cinta Blanca* en **Dev.f** con el sensei @pedroagont — ¡gracias sensei!
+Proyecto final de la *Cinta Blanca* en **Dev.f** con el sensei @pedroagont — ¡Gracias sensei!
 
 ![Imagen memorama](https://i.ibb.co/R9V85Gm/memoramapoke.png)
 
